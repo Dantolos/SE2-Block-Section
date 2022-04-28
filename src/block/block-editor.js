@@ -40,20 +40,7 @@ const SectionEdit = ({ attributes, setAttributes }) => {
                style: style
           });
      }
-     function handleShapeChange(e, position) {
-          if (position === 'top') {
-               setAttributes({ shapetop: e.target.getAttribute('shape') })
-          }
-          if (position === 'bottom') {
-               setAttributes({ shapebottom: e.target.getAttribute('shape') })
-          }
-          for (const li of e.target.parentNode.childNodes) {
-               li.style.backgroundColor = 'white'
-          }
-          //.map(li => { })
-          e.target.style.backgroundColor = 'lightgrey'
-          console.log(attributes)
-     }
+   
 
      function handleShapeColor(e, position) {
           console.log(attributes)

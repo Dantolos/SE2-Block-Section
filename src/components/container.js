@@ -46,9 +46,11 @@ export default class SE2_container extends Component {
           )
      }
 
-     componentDidMount() {
+     UNSAFE_componentDidMount() {
           this.changeSettings(this.props.SE2containerStyle, 'style')
      }
+
+ 
 
      render() {
 
@@ -96,7 +98,8 @@ export default class SE2_container extends Component {
 
           var video = this.state.video ? this.state.video : 'false'
 
-          this.props.SE2containerStyle = {
+          this.props.SE2containerStyle = 
+            {
                overflow: 'hidden',
                position: 'relative',
                height: 'auto',
