@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/dantolos
  * Description: SE2 Block Section — is a Gutenberg plugin created via create-guten-block.
  * Author: mrahmadawais, maedahbatool
- * Version: 1.0.05
+ * Version: 1.0.06
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  *

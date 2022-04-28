@@ -42,12 +42,12 @@ export default class SE2_container extends Component {
                     newState[k] = v
                     return newState;
                },
-               () => { this.props.styleHandler(this.state, this.props.SE2containerStyle) }
+               () => { this.props.styleHandler(this.state, this.props.containerStyle) }
           )
      }
 
      UNSAFE_componentDidMount() {
-          this.changeSettings(this.props.SE2containerStyle, 'style')
+          this.changeSettings(this.props.containerStyle, 'style')
      }
 
  
@@ -98,7 +98,7 @@ export default class SE2_container extends Component {
 
           var video = this.state.video ? this.state.video : 'false'
 
-          this.props.SE2containerStyle = 
+          this.props.containerStyle = 
             {
                overflow: 'hidden',
                position: 'relative',
@@ -283,12 +283,12 @@ export default class SE2_container extends Component {
                     </InspectorControls>
 
                     {/* ---------------- DISPLAY ---------------- */}
-                    <div className="se2-container" style={this.props.SE2containerStyle}>
+                    <div className="se2-container" style={this.props.containerStyle}>
 
-                         {this.props.SE2containerStyle.video
+                         {this.props.containerStyle.video
                               ?
                               <video class="background-video" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', height: '100%', width: '177.77777778vh', minWidth: '100%', minHeight: '56.25vw' }} autoplay loop muted playsinline>
-                                   <source src={this.props.SE2containerStyle.video.url} type={this.props.SE2containerStyle.video.mime} ></source>
+                                   <source src={this.props.containerStyle.video.url} type={this.props.containerStyle.video.mime} ></source>
                               </video>
                               : ''
                          }
