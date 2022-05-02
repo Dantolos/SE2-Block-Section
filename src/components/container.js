@@ -4,7 +4,7 @@ import {
      __experimentalNumberControl as NumberControl,
      __experimentalBoxControl as BoxControl,
      __experimentalUnitControl as UnitControl,
-     __experimentalInputControl as InputControl
+     __experimentalInputControl as InputControl,
 } from '@wordpress/components';
 
 const {
@@ -20,6 +20,7 @@ const {
      SelectControl,
      Button,
      RangeControl,
+     GradientPicker
 
 } = wp.components;
 
@@ -50,7 +51,7 @@ export default class SE2_container extends Component {
           this.changeSettings(this.props.containerStyle, 'style')
      }
 
- 
+
 
      render() {
 
@@ -84,7 +85,8 @@ export default class SE2_container extends Component {
           var filter;
           if (this.state.clipPath !== 'none') {
                clipPath = `polygon(${this.state.clipPath})`;
-               /* if (this.state.borderRadius.top) {
+               /*
+               if (this.state.borderRadius.top) {
                     filter = `drop-shadow(${this.state.borderWidth.top} 0px 0px ${this.state.borderColor})
                               drop-shadow(-${this.state.borderWidth.top} 0px 0px ${this.state.borderColor})
                               drop-shadow(0px ${this.state.borderWidth.top} 0px ${this.state.borderColor})
@@ -96,10 +98,11 @@ export default class SE2_container extends Component {
                } */
           }
 
+
           var video = this.state.video ? this.state.video : 'false'
 
-          this.props.containerStyle = 
-            {
+          this.props.containerStyle =
+          {
                overflow: 'hidden',
                position: 'relative',
                height: 'auto',
@@ -110,6 +113,7 @@ export default class SE2_container extends Component {
                margin: margin,
                padding: padding,
 
+               background: this.state.background,
                backgroundColor: this.state.backgroundColor,
                backgroundImage: backgroundImage,
                backgroundSize: this.state.backgroundSize,
@@ -126,7 +130,9 @@ export default class SE2_container extends Component {
 
                filter: filter,
 
-               video: video
+               video: video,
+
+               opacity: this.state.opacity
           }
 
 
@@ -155,10 +161,34 @@ export default class SE2_container extends Component {
 
                          {/* BACKGROUND */}
                          <PanelBody title={'Background'} initialOpen={false} >
+
+                              {/* OPACITY */}
+                              <RangeControl
+                                   label={'Opacity'}
+                                   value={this.state.opacity}
+                                   onChange={(value) => this.changeSettings(value, 'opacity')}
+                                   min={0}
+                                   max={1}
+                                   step={0.02}
+
+                                   marks={[
+                                        {
+                                             value: 0.5,
+                                             label: '50%',
+                                        }
+                                   ]}
+                              />
+
                               {/* COLOR */}
+
                               <ColorPalette
                                    value={this.state.backgroundColor}
                                    onChange={(value) => this.changeSettings(value, 'backgroundColor')}
+                              />
+
+                              <GradientPicker
+                                   value={this.state.background}
+                                   onChange={(value) => this.changeSettings(value, 'background')}
                               />
 
                               {/* IMAGE */}

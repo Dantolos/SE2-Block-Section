@@ -40,7 +40,7 @@ const SectionEdit = ({ attributes, setAttributes }) => {
                style: style
           });
      }
-   
+
 
      function handleShapeColor(e, position) {
           console.log(attributes)
@@ -55,19 +55,19 @@ const SectionEdit = ({ attributes, setAttributes }) => {
 
      // Return the edit markup.
      return (
-         
-               <div {...blockProps}>
- 
-                    <SE2_container
-                         {...blockProps}
-                         key={'edit'}
-                         styleHandler={containerStyle}
-                         styleProps={styleProps}
-                    >
-                         <InnerBlocks allowedBlocks={true} renderAppender={InnerBlocks.ButtonBlockAppender} />
-                    </SE2_container>
-               </div>
-         
+
+          <div {...blockProps}>
+
+               <SE2_container
+                    {...blockProps}
+                    key={'edit'}
+                    styleHandler={containerStyle}
+                    styleProps={styleProps}
+               >
+                    <InnerBlocks allowedBlocks={true} renderAppender={InnerBlocks.ButtonBlockAppender} />
+               </SE2_container>
+          </div>
+
      );
 
 }

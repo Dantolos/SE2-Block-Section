@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @uses {wp-blocks} for block type registration & related functions.
  * @uses {wp-element} for WP Element abstraction — structure of blocks.
  * @uses {wp-i18n} to internationalize the block's text.
- * @uses {wp-editor} for WP editor styles.
+ * @uses {wp-editor} for WP editor styles. 
  * @since 1.0.0
  */
 function se2_section_cgb_block_assets() { // phpcs:ignore
@@ -95,6 +95,7 @@ function se2_section_cgb_block_assets() { // phpcs:ignore
 						  'minHeight'              => 'auto',                        
 						  'margin'                 => '0',
 						  'padding'                => '0',
+						  'background'			  => 'unset',
 						  'backgroundColor'        => '#f1f1f1',
 						  'backgroundImage'        => 'none',
 						  'backgroundSize'         => 'cover',
@@ -106,7 +107,8 @@ function se2_section_cgb_block_assets() { // phpcs:ignore
 						  'borderColor'            => '#ffffff',
 						  'borderRadius'           => '0',
 						  'clipPath'               => 'unset',
-						  'video'                  => 'false'
+						  'video'                  => 'false',
+						  'opacity'			  => '1'
 					 ]
 				],
 				'style' => [

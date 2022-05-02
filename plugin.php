@@ -2,9 +2,9 @@
 /**
  * Plugin Name: SE2 Block Section 
  * Plugin URI: https://github.com/dantolos
- * Description: SE2 Block Section — is a Gutenberg plugin created via create-guten-block.
- * Author: mrahmadawais, maedahbatool
- * Version: 1.0.06
+ * Description: SE2 Block Section — created for the SimplEvent v2 - Theme | Its just a container -> the magic is in ur hand!
+ * Author: Aaron Giaimo
+ * Version: 1.0.07
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  *
