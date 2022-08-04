@@ -88,6 +88,7 @@ function se2_section_cgb_block_assets() { // phpcs:ignore
 				'containerstyle' => [ 
 					 'type' => 'object',
 					 'default' => [
+						
 						  'overflow'               => 'hidden',
 						  'position'               => 'relative',
 						  'height'                 => 'auto',
@@ -108,7 +109,12 @@ function se2_section_cgb_block_assets() { // phpcs:ignore
 						  'borderRadius'           => '0',
 						  'clipPath'               => 'unset',
 						  'video'                  => 'false',
-						  'opacity'			  => '1'
+						  'opacity'				   => '1',
+						  'zIndex'					=> 'inherit',
+						  'top'						=> 'unset',
+						  'right' 					=> 'unset',
+						  'left' 					=> 'unset',
+						  'bottom' 					=> 'unset'
 					 ]
 				],
 				'style' => [

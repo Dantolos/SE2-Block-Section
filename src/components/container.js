@@ -103,8 +103,10 @@ export default class SE2_container extends Component {
 
           this.props.containerStyle =
           {
-               overflow: 'hidden',
-               position: 'relative',
+               overflow: this.state.overflow,
+
+               zIndex: this.state.zIndex,
+               
                height: 'auto',
                width: this.state.width,
 
@@ -132,7 +134,13 @@ export default class SE2_container extends Component {
 
                video: video,
 
-               opacity: this.state.opacity
+               opacity: this.state.opacity,
+
+               position: this.state.position,
+               top: this.state.top,
+               right: this.state.right,
+               left: this.state.left,
+               bottom: this.state.bottom
           }
 
 
@@ -140,6 +148,54 @@ export default class SE2_container extends Component {
                <div>
                     {/* ---------------- SETTINGS ---------------- */}
                     <InspectorControls style={{ marginBottom: '40px' }} >
+                         
+                         {/* POSITION */}
+                         <PanelBody title={'Position'} initialOpen={false} >
+                                   <SelectControl
+                                        style={{ margin: '2%' }}
+                                        label={'Position'}
+                                        value={this.state.position} // e.g: value = [ 'a', 'c' ]
+                                        onChange={value => { this.changeSettings(value, 'position') }}
+                                        options={[
+                                             { value: 'unset', label: 'Unset (Default)' },
+                                             { value: 'static', label: 'Static' },
+                                             { value: 'relative', label: 'Relative' },
+                                             { value: 'absolute', label: 'Absolute' },
+                                             { value: 'fixed', label: 'Fixed' },
+                                             { value: 'sticky', label: 'Sticky' },
+                                        ]}
+                                   />
+                                   <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', marginTop: '20px' }}>
+                                        <UnitControl 
+                                             style={{width: '25%'}}
+                                             onChange={value => { this.changeSettings(value, 'top') }} 
+                                             value={ this.state.top } 
+                                             label= 'Top'
+                                             labelPosition= 'top'
+                                        />
+                                        <UnitControl 
+                                             style={{width: '25%'}}
+                                             onChange={value => { this.changeSettings(value, 'right') }} 
+                                             value={ this.state.right } 
+                                             label= 'Right'
+                                             labelPosition= 'top'
+                                        />
+                                        <UnitControl 
+                                             style={{width: '25%'}}
+                                             onChange={value => { this.changeSettings(value, 'bottom') }} 
+                                             value={ this.state.bottom } 
+                                             label= 'Bottom'
+                                             labelPosition= 'top'
+                                        />
+                                        <UnitControl 
+                                             style={{width: '25%'}}
+                                             onChange={value => { this.changeSettings(value, 'left') }} 
+                                             value={ this.state.left } 
+                                             label= 'Left'
+                                             labelPosition= 'top'
+                                        />
+                                   </div>
+                         </PanelBody>
 
                          {/* SIZE */}
                          <PanelBody title={'Size'} initialOpen={false} >
@@ -309,6 +365,33 @@ export default class SE2_container extends Component {
                               />
                               <p>More infos and <a href="https://bennettfeely.com/clippy/" target="_blank"><b>presets</b></a></p>
                          </PanelBody>
+
+
+                         <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', marginTop: '20px', backgroundColor: 'rgba(0,0,0,.05)', padding: '5%' }}>
+                              <SelectControl
+                                   style={{ margin: '2%', width: '50%' }}
+                                   label={'Overflow'}
+                                   value={this.state.overflow} // e.g: value = [ 'a', 'c' ]
+                                   onChange={value => { this.changeSettings(value, 'overflow') }}
+                                   options={[
+                                        { value: 'visible', label: 'Visible' },
+                                        { value: 'hidden', label: 'Hidden (default)' },
+                                        { value: 'scroll', label: 'Scroll' },
+                                        { value: 'auto', label: 'Auto' },
+                                        { value: 'inherit', label: 'Inherit' },
+                                   ]}
+                              />
+                              <NumberControl
+                                   onChange={value => { this.changeSettings(value, 'zIndex') }}
+                                   style={{marginLeft: '5px'}}
+                                   label= 'z-index'
+                                   isDragEnabled
+                                   isShiftStepEnabled
+                                   shiftStep={ 1 }
+                                   step={1}
+                                   value={ this.state.zIndex }
+                              />
+                         </div>
 
                     </InspectorControls>
 
